@@ -1,4 +1,3 @@
-# DECISIONS.md  (about 150-200 words in total - plain language, your own words)
 
 1. **Indexes.** Which indexes did you create, and which query or guarantee does each one serve? Which one did you consider and reject?
 ans : Unique (emp_code, date) on attendance_logs: one record per employee per day, and fast monthly lookups (explain confirmed it). An index on date for month-wide queries like the leaderboard and trend. Unique emp_code on employees for unique codes and quick joins. I skipped a separate emp_code index on logs, since the first covers it.
