@@ -1,7 +1,5 @@
 # REVIEW.md
 
-List every defect you found in the starter `app/main.py` (helpers and endpoints). For each one:
-
 | # | Where (function / line) | What is wrong | How you'd notice it (test, input, or symptom) | How you fixed it |
 |---|---|---|---|---|
 | 1 | `list_employees`: `skip = page * page_size` | Pages start at 1, so page 1 skipped a whole page of results. | `GET /employees?page=1&page_size=20` returned `items: []` while `total` was 6. | `skip = (page - 1) * page_size` |
